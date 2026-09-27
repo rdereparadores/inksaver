@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- The Windows 10 SDK projection gives access to Windows.Data.Pdf for rendering PDFs. -->
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <ApplicationIcon>Resources\inksaver.ico</ApplicationIcon>
+    <AssemblyName>InkSaver</AssemblyName>
+    <RootNamespace>InkSaver</RootNamespace>
+    <AssemblyTitle>InkSaver</AssemblyTitle>
+    <Description>Prints a maintenance page periodically so inkjet cartridges do not dry out.</Description>
+    <SatelliteResourceLanguages>es</SatelliteResourceLanguages>
+    <!-- Allows compiling (not running) the project from Linux/macOS. -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\*.ico" LogicalName="InkSaver.%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="InkSaver.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InkSaver.Core\InkSaver.Core.csproj" />
+  </ItemGroup>
+
+</Project>
